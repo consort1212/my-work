@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: school-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: school-website
+  template:
+    metadata:
+      labels:
+        app: school-website
+    spec:
+      containers:
+      - name: school-website
+        image: school-website:2.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
